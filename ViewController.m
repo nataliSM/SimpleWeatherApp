@@ -30,10 +30,12 @@
     WeatherRequestService *weatherService = [WeatherRequestService new];
     [weatherService getImageWithSuccessBlock:^(NSData *result)
      {
+         
          UIImage *downloadImage = [UIImage imageWithData:result];
          self.image.image = downloadImage;
+         
      } andErrorBlock:^(NSError *error) {
-         NSLog(@"%@, Картинки нет",error);
+         NSLog(@"%@",error);
      }];
     
     
@@ -82,10 +84,10 @@
     WeatherRequestService *service = [WeatherRequestService new];
     [service getWeatherByCityName:self.cityText.text withSuccesBlock:^(NSString *result) {
      
-        dispatch_async(dispatch_get_main_queue(), ^{
+        
             self.resultWeather = result;
             [self performSegueWithIdentifier:@"detailSegue" sender:nil];
-        });
+    
         
     } andErrorBlock:^(NSError *error) {
         

@@ -33,8 +33,11 @@ static NSString const *imageUrl = @"http://www.dnepr-333.dp.ua/favicon.png";
         }
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         NSString *result = [NSString stringWithFormat:@"%@", dict[@"main"][@"temp"]];
-        successBlock(result);
-        NSLog(@"%@", dict);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            successBlock(result);
+        });
+    
         
         
         
@@ -56,7 +59,11 @@ static NSString const *imageUrl = @"http://www.dnepr-333.dp.ua/favicon.png";
             return ;
         }
         NSData *imageData = [NSData dataWithContentsOfURL:location];
-        successBlock(imageData);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+             successBlock(imageData);
+        });
+       
         
     }];
     
