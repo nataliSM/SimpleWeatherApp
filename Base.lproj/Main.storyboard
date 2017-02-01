@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9cX-Cj-99i">
+                                <rect key="frame" x="107" y="346" width="200" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="9kB-sr-1rt"/>
+                                    <constraint firstAttribute="width" constant="200" id="qAL-0f-QDq"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3n-BC-vrQ">
+                                <rect key="frame" x="157" y="412" width="100" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Kh2-ap-EX7"/>
+                                    <constraint firstAttribute="height" constant="44" id="knG-B0-2pr"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="searchButtonHandler:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jvw-9X-xeB"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P4K-E3-Nph">
+                                <rect key="frame" x="157" y="126" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="fr8-M7-DFE"/>
+                                    <constraint firstAttribute="height" constant="100" id="tZv-WE-k21"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="n3n-BC-vrQ" firstAttribute="top" secondItem="9cX-Cj-99i" secondAttribute="bottom" constant="21.5" id="0be-Ic-KpZ"/>
+                            <constraint firstItem="n3n-BC-vrQ" firstAttribute="centerX" secondItem="9cX-Cj-99i" secondAttribute="centerX" id="Mg3-qB-1ew"/>
+                            <constraint firstItem="9cX-Cj-99i" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="TyY-hE-4gb"/>
+                            <constraint firstItem="9cX-Cj-99i" firstAttribute="top" secondItem="P4K-E3-Nph" secondAttribute="bottom" constant="120" id="b8P-EM-kVS"/>
+                            <constraint firstItem="P4K-E3-Nph" firstAttribute="centerX" secondItem="9cX-Cj-99i" secondAttribute="centerX" id="cAx-23-h7y"/>
+                            <constraint firstItem="9cX-Cj-99i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pLe-5l-eHK"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="OVi-F2-UUK" appends="YES" id="eyg-an-iVG"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="cityText" destination="9cX-Cj-99i" id="Jl0-wZ-Ha7"/>
+                        <outlet property="image" destination="P4K-E3-Nph" id="hbJ-Rl-rg5"/>
+                        <outlet property="offsetConstraint" destination="TyY-hE-4gb" id="eSF-c1-071"/>
+                        <segue destination="r7v-8f-EVX" kind="show" identifier="detailSegue" id="hga-xs-7vc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="OVi-F2-UUK">
+                    <connections>
+                        <action selector="tabGestureHandler:" destination="BYZ-38-t0r" id="jbs-Cq-rAo"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="04K-nL-dWr">
+            <objects>
+                <viewController id="r7v-8f-EVX" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LWd-cU-vTR"/>
+                        <viewControllerLayoutGuide type="bottom" id="3hU-Xq-ta7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gr3-4U-Xw3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFP-6q-Xko">
+                                <rect key="frame" x="107.33333333333331" y="345.66666666666669" width="200" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="dP6-7K-i6O"/>
+                                    <constraint firstAttribute="width" constant="200" id="uqR-Cz-Ifl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TFP-6q-Xko" firstAttribute="centerY" secondItem="Gr3-4U-Xw3" secondAttribute="centerY" id="9jQ-IZ-gb7"/>
+                            <constraint firstItem="TFP-6q-Xko" firstAttribute="centerX" secondItem="Gr3-4U-Xw3" secondAttribute="centerX" id="MxM-g0-9op"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="weatherLabel" destination="TFP-6q-Xko" id="abr-bi-fUd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y1s-6X-Ogb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="730.43478260869574" y="89.673913043478265"/>
+        </scene>
+    </scenes>
+</document>
